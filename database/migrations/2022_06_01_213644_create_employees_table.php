@@ -18,7 +18,7 @@ class CreateEmployeesTable extends Migration
             $table->string('name');
             $table->string('position');
             $table->integer('superior')->unsigned()->nullable();
-            $table->foreign('superior')->references('id')->on('employees');
+            $table->foreign('superior')->references('id')->on('employees')->onDelete('cascade');
             $table->date('start_date');
             $table->date('end_date')->nullable();
         });

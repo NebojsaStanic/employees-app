@@ -14,7 +14,7 @@ class EmployeesController extends Controller
 
     public function show($id)
     {
-        return response()->json(Employee::find($id));
+        return response()->json(Employee::with('superior')->find($id));
     }
 
     public function create(Request $request)
@@ -41,10 +41,10 @@ class EmployeesController extends Controller
     public function delete($id)
     {
         Employee::findOrFail($id)->delete();
-        return response('Deleted Successfully', 200);
+        return response()->json([], 200);
     }
 
-    public function getManagementEmployees($id)
+    public function getSuperiorSubordinates($id)
     {
         return Employee::findOrFail($id)->employees()->get();
     }

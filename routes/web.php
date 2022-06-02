@@ -31,7 +31,7 @@ $router->group(['prefix' => 'api'], function () use ($router) {
 
     $router->put('employees/{id}', ['uses' => 'EmployeesController@update']);
 
-    $router->get('filter/management/{id}/employees', ['uses' => 'EmployeesController@getManagementEmployees']);
+    $router->get('filter/superior/{id}/subordinates', ['uses' => 'EmployeesController@getSuperiorSubordinates']);
 
     $router->get('filter/employees/{position}', ['uses' => 'EmployeesController@filterByPosition']);
 });
